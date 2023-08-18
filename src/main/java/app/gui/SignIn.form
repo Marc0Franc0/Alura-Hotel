@@ -102,7 +102,7 @@
                                   <Component id="inputPassword" alignment="0" min="-2" pref="305" max="-2" attributes="0"/>
                                   <Component id="jSeparator1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                   <Component id="jSeparator2" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                  <Component id="btnLogin1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="btnLogin" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                                   <Component id="btnRegister" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -131,7 +131,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnLogin1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnLogin" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnRegister" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace pref="34" max="32767" attributes="0"/>
@@ -270,7 +270,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLogin1">
+            <Component class="javax.swing.JButton" name="btnLogin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -288,7 +288,8 @@
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogin1ActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLoginMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

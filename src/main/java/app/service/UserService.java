@@ -4,7 +4,7 @@ import app.dto.UserDTO;
 import app.model.User;
 import app.persistence.UserJpaController;
 
-public class UserService implements CrudService {
+public class UserService extends UserUtils implements CrudService{
   private UserJpaController userJpaController = new UserJpaController();
 
     @Override
