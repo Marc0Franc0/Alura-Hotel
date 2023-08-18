@@ -144,7 +144,7 @@ public class MainMenu extends javax.swing.JFrame{
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
      //Se instancia la clase Login
-     Login login = new Login();
+     SignIn login = new SignIn();
      //Se establece que los componentes de la clase sean visibles 
      login.setVisible(true);
      //Se establece la localización en el centro
