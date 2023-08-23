@@ -29,9 +29,9 @@ public class SignUp extends javax.swing.JFrame {
         inputUsername = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnRegister = new javax.swing.JButton();
-        BtnReturn = new javax.swing.JButton();
         inputPassword = new javax.swing.JPasswordField();
+        btnRegister = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -45,15 +45,15 @@ public class SignUp extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-pequeño.png"))); // NOI18N
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 153, 255));
         jLabel3.setText("CREAR NUEVA CUENTA");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("CONTRASEÑA");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("USUARIO");
 
@@ -77,44 +77,32 @@ public class SignUp extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(102, 153, 255));
         jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
+        inputPassword.setForeground(new java.awt.Color(51, 51, 51));
+        inputPassword.setText("jPasswordField1");
+        inputPassword.setBorder(null);
+
         btnRegister.setBackground(new java.awt.Color(51, 153, 255));
-        btnRegister.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Registrarse");
-        btnRegister.setBorder(null);
         btnRegister.setFocusable(false);
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegisterMouseClicked(evt);
             }
         });
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
 
-        BtnReturn.setBackground(new java.awt.Color(51, 153, 255));
-        BtnReturn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BtnReturn.setForeground(new java.awt.Color(255, 255, 255));
-        BtnReturn.setText("<");
-        BtnReturn.setBorder(null);
-        BtnReturn.setFocusable(false);
-        BtnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnReturn.setBackground(new java.awt.Color(51, 153, 255));
+        btnReturn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        btnReturn.setForeground(new java.awt.Color(255, 255, 255));
+        btnReturn.setText("<");
+        btnReturn.setFocusable(false);
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnReturnMouseClicked(evt);
+                btnReturnMouseClicked(evt);
             }
         });
-        BtnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnReturnActionPerformed(evt);
-            }
-        });
-
-        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
-        inputPassword.setForeground(new java.awt.Color(51, 51, 51));
-        inputPassword.setText("jPasswordField1");
-        inputPassword.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,7 +111,7 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(btnReturn)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,19 +120,19 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))))
-                    .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+                            .addComponent(btnRegister)))
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnReturn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel3)
@@ -161,8 +149,8 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -207,59 +195,45 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-
-            //Obteneción de string de cada input
-            String username = this.inputUsername.getText();
-            char[] password = this.inputPassword.getPassword();
-            //Se llama al método del servicio de usuario que se encarga de registrar 
-            //El método retorna true o false, dependiendo si se creo o no el usuario
-            if(this.userService.create(new SignUpDTO(username, password))){
-                 //Se notifica al usuario de un registro exitoso
+        //Obteneción de string de cada input
+        String username = this.inputUsername.getText();
+        char[] password = this.inputPassword.getPassword();
+        //Se llama al método del servicio de usuario que se encarga de registrar 
+        //El método retorna true o false, dependiendo si se creo o no el usuario
+        if (this.userService.create(new SignUpDTO(username, password))) {
+            //Se notifica al usuario de un registro exitoso
             this.jOptionPane.showMessageDialog(
                     null,
                     "Registro exitoso",
                     "Message",
                     JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                 //Se notifica al usuario de un registro fallido
-                 this.jOptionPane.showMessageDialog(
+        } else {
+            //Se notifica al usuario de un registro fallido
+            this.jOptionPane.showMessageDialog(
                     null,
                     "Ocurrió un error al registrarse, "
                     + "pruebe de nuevo más tarde o con otro nombre de usuario",
                     "Message",
                     JOptionPane.ERROR_MESSAGE);
-          
-            }
-         
-           
-     
-    
 
+        }
     }//GEN-LAST:event_btnRegisterMouseClicked
-     //Se presiona el boton si se desea volver a la ventana anterior
-    private void BtnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReturnMouseClicked
-      //Se instancia la clase Login
-     SignIn login = new SignIn();
-     //Se oculta la ventana Principal que apunta a esta clase
-     this.setVisible(false);
-    }//GEN-LAST:event_BtnReturnMouseClicked
 
-    private void BtnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnReturnActionPerformed
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+         //Se instancia la clase Login
+        SignIn login = new SignIn();
+        //Se oculta la ventana Principal que apunta a esta clase
+        this.setVisible(false);
+    }//GEN-LAST:event_btnReturnMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnReturn;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JLabel jLabel1;

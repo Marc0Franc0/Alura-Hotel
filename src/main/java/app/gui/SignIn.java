@@ -5,14 +5,16 @@ import app.service.UserService;
 import javax.swing.JOptionPane;
 
 public class SignIn extends javax.swing.JFrame {
-private UserService userService = new UserService();
-private JOptionPane jOptionPane = new JOptionPane();
+
+    private UserService userService = new UserService();
+    private JOptionPane jOptionPane = new JOptionPane();
 
     public SignIn() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,9 +29,9 @@ private JOptionPane jOptionPane = new JOptionPane();
         inputUsername = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnRegister = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
         inputPassword = new javax.swing.JPasswordField();
+        btnLogin = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -74,43 +76,31 @@ private JOptionPane jOptionPane = new JOptionPane();
         jSeparator2.setForeground(new java.awt.Color(102, 153, 255));
         jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnRegister.setBackground(new java.awt.Color(51, 153, 255));
-        btnRegister.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Crear nueva cuenta");
-        btnRegister.setBorder(null);
-        btnRegister.setFocusable(false);
-        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegisterMouseClicked(evt);
-            }
-        });
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
+        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
+        inputPassword.setText("jPasswordField1");
+        inputPassword.setBorder(null);
 
         btnLogin.setBackground(new java.awt.Color(51, 153, 255));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Entrar");
-        btnLogin.setBorder(null);
         btnLogin.setFocusable(false);
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLoginMouseClicked(evt);
             }
         });
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+
+        btnRegister.setBackground(new java.awt.Color(51, 153, 255));
+        btnRegister.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Crear nueva cuenta");
+        btnRegister.setFocusable(false);
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseClicked(evt);
             }
         });
-
-        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
-        inputPassword.setText("jPasswordField1");
-        inputPassword.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,11 +117,11 @@ private JOptionPane jOptionPane = new JOptionPane();
                             .addComponent(jLabel4)
                             .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))))
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+                            .addComponent(btnLogin)
+                            .addComponent(btnRegister)))
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -154,11 +144,11 @@ private JOptionPane jOptionPane = new JOptionPane();
                 .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnLogin)
                 .addGap(18, 18, 18)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(btnRegister)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,23 +193,6 @@ private JOptionPane jOptionPane = new JOptionPane();
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-            // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-     //Se instancia la clase SignUp
-     SignUp login = new SignUp();
-     //Se oculta la ventana actual
-     this.setVisible(false);
-
-
-    }//GEN-LAST:event_btnRegisterMouseClicked
-
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         //Se obtienen los datos ingresados en los inputs de username y password
         String username = this.inputUsername.getText();
@@ -227,12 +200,12 @@ private JOptionPane jOptionPane = new JOptionPane();
         String stringpassword = new String(charpassword);
         //Se llama al método encargado de autenticar un usuario
         boolean auth = this.userService.authenticate(new SignInDTO(username, stringpassword));
-        if(auth){
+        if (auth) {
             //Se instancia la clase UserMenu
             UserMenu userMenu = new UserMenu();
-           //Se oculta la clase actual
+            //Se oculta la clase actual
             this.setVisible(false);
-        }else{
+        } else {
             this.jOptionPane.showMessageDialog(
                     null,
                     "Ocurrió un error al iniciar sesión, "
@@ -240,14 +213,19 @@ private JOptionPane jOptionPane = new JOptionPane();
                     "Message",
                     JOptionPane.ERROR_MESSAGE);
         }
-        
-        
     }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
+        //Se instancia la clase SignUp
+        SignUp login = new SignUp();
+        //Se oculta la ventana actual
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegisterMouseClicked
 
     /**
      * @param args the command line arguments
      */
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;

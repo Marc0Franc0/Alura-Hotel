@@ -51,7 +51,7 @@ public class UserMenu extends javax.swing.JFrame {
         jLabel2.setOpaque(true);
 
         labelDay.setBackground(new java.awt.Color(118, 187, 223));
-        labelDay.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelDay.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         labelDay.setForeground(new java.awt.Color(255, 255, 255));
         labelDay.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDay.setOpaque(true);
@@ -102,8 +102,10 @@ public class UserMenu extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
+        BtnRegisterReserve.setBackground(new java.awt.Color(12, 138, 199));
+        BtnRegisterReserve.setForeground(new java.awt.Color(12, 138, 199));
         BtnRegisterReserve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btn-registroReserva.png"))); // NOI18N
-        BtnRegisterReserve.setBorder(null);
+        BtnRegisterReserve.setFocusable(false);
         BtnRegisterReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnRegisterReserveMouseClicked(evt);
@@ -115,18 +117,11 @@ public class UserMenu extends javax.swing.JFrame {
             }
         });
 
+        BtnSearch.setBackground(new java.awt.Color(12, 138, 199));
+        BtnSearch.setForeground(new java.awt.Color(12, 138, 199));
         BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchBtn.png"))); // NOI18N
-        BtnSearch.setBorder(null);
-        BtnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnSearchMouseClicked(evt);
-            }
-        });
-        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchActionPerformed(evt);
-            }
-        });
+        BtnSearch.setDefaultCapable(false);
+        BtnSearch.setFocusable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,15 +130,15 @@ public class UserMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnRegisterReserve)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnSearch))
-                        .addGap(33, 33, 33))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(0, 74, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnRegisterReserve)
+                            .addComponent(BtnSearch))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -151,13 +146,13 @@ public class UserMenu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(74, 74, 74)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(28, 28, 28)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(29, 29, 29)
                 .addComponent(BtnRegisterReserve)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
                 .addComponent(BtnSearch)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -182,21 +177,10 @@ public class UserMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnRegisterReserveActionPerformed
 
-    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSearchActionPerformed
-
     private void BtnRegisterReserveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRegisterReserveMouseClicked
-        System.out.println("Reserva");
-        //Se instancia la clase ReserveRgister
-        //ReserveRegister reserveRegister = new ReserveRegister();
-        //Se oculta la ventana actual
-        //this.setVisible(false);
+       ReserveRegister reserveRegister = new ReserveRegister();
+       this.setVisible(false);
     }//GEN-LAST:event_BtnRegisterReserveMouseClicked
-
-    private void BtnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSearchMouseClicked
-        System.out.println("Buscador");
-    }//GEN-LAST:event_BtnSearchMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
