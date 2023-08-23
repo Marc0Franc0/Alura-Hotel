@@ -9,6 +9,8 @@ public class MainMenu extends javax.swing.JFrame{
      */
     public MainMenu() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -145,11 +147,7 @@ public class MainMenu extends javax.swing.JFrame{
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
      //Se instancia la clase Login
      SignIn login = new SignIn();
-     //Se establece que los componentes de la clase sean visibles 
-     login.setVisible(true);
-     //Se establece la localización en el centro
-     login.setLocationRelativeTo(null);
-     //Se oculta la ventana Principal que apunta a esta clase
+     //Se oculta la ventana actual
      this.setVisible(false);
     }//GEN-LAST:event_btnLoginMouseClicked
 

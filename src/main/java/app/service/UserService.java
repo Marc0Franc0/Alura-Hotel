@@ -1,6 +1,6 @@
 package app.service;
 
-import app.dto.UserDTO;
+import app.dto.SignUpDTO;
 import app.model.User;
 import app.persistence.UserJpaController;
 
@@ -10,7 +10,7 @@ public class UserService extends UserUtils implements CrudService{
     @Override
     public boolean create(Object object) {
         boolean created = false;
-        UserDTO userdto = (UserDTO) object;
+        SignUpDTO userdto = (SignUpDTO) object;
         try{
             userJpaController
                     .create(new User(

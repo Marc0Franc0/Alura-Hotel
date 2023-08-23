@@ -1,13 +1,17 @@
 package app.gui;
 
-import app.dto.UserDTO;
+import app.dto.SignInDTO;
 import app.service.UserService;
+import javax.swing.JOptionPane;
 
 public class SignIn extends javax.swing.JFrame {
 private UserService userService = new UserService();
+private JOptionPane jOptionPane = new JOptionPane();
 
     public SignIn() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,13 +25,14 @@ private UserService userService = new UserService();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         inputUsername = new javax.swing.JTextField();
-        inputPassword = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        inputPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -58,18 +63,6 @@ private UserService userService = new UserService();
         inputUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputUsernameActionPerformed(evt);
-            }
-        });
-
-        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
-        inputPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inputPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        inputPassword.setText(".......");
-        inputPassword.setToolTipText("");
-        inputPassword.setBorder(null);
-        inputPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputPasswordActionPerformed(evt);
             }
         });
 
@@ -115,6 +108,10 @@ private UserService userService = new UserService();
             }
         });
 
+        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
+        inputPassword.setText("jPasswordField1");
+        inputPassword.setBorder(null);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -122,7 +119,6 @@ private UserService userService = new UserService();
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,11 +126,13 @@ private UserService userService = new UserService();
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))))
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -152,7 +150,7 @@ private UserService userService = new UserService();
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,10 +203,6 @@ private UserService userService = new UserService();
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPasswordActionPerformed
-
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
             // TODO add your handling code here:
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -220,11 +214,7 @@ private UserService userService = new UserService();
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
      //Se instancia la clase SignUp
      SignUp login = new SignUp();
-     //Se establece que los componentes de la clase sean visibles 
-     login.setVisible(true);
-     //Se establece la localización en el centro
-     login.setLocationRelativeTo(null);
-     //Se oculta la ventana Principal que apunta a esta clase
+     //Se oculta la ventana actual
      this.setVisible(false);
 
 
@@ -233,10 +223,23 @@ private UserService userService = new UserService();
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         //Se obtienen los datos ingresados en los inputs de username y password
         String username = this.inputUsername.getText();
-        String password = this.inputPassword.getText();
+        char[] charpassword = this.inputPassword.getPassword();
+        String stringpassword = new String(charpassword);
         //Se llama al método encargado de autenticar un usuario
-        boolean auth = this.userService.authenticate(new UserDTO(username, password));
-        System.out.println(auth);
+        boolean auth = this.userService.authenticate(new SignInDTO(username, stringpassword));
+        if(auth){
+            //Se instancia la clase UserMenu
+            UserMenu userMenu = new UserMenu();
+           //Se oculta la clase actual
+            this.setVisible(false);
+        }else{
+            this.jOptionPane.showMessageDialog(
+                    null,
+                    "Ocurrió un error al iniciar sesión, "
+                    + "pruebe de nuevo más tarde o con otras credenciales",
+                    "Message",
+                    JOptionPane.ERROR_MESSAGE);
+        }
         
         
     }//GEN-LAST:event_btnLoginMouseClicked
@@ -248,7 +251,7 @@ private UserService userService = new UserService();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JTextField inputPassword;
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

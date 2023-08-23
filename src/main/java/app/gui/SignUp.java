@@ -1,6 +1,6 @@
 package app.gui;
 
-import app.dto.UserDTO;
+import app.dto.SignUpDTO;
 import app.service.UserService;
 import javax.swing.JOptionPane;
 
@@ -11,6 +11,8 @@ public class SignUp extends javax.swing.JFrame {
 
     public SignUp() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,12 +27,14 @@ public class SignUp extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         inputUsername = new javax.swing.JTextField();
-        inputPassword = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnRegister = new javax.swing.JButton();
+        BtnReturn = new javax.swing.JButton();
+        inputPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -55,24 +59,13 @@ public class SignUp extends javax.swing.JFrame {
 
         inputUsername.setBackground(new java.awt.Color(255, 255, 255));
         inputUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inputUsername.setForeground(new java.awt.Color(51, 51, 51));
         inputUsername.setText("Ingrese su nombre de usuario");
         inputUsername.setBorder(null);
         inputUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         inputUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputUsernameActionPerformed(evt);
-            }
-        });
-
-        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
-        inputPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inputPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        inputPassword.setText(".......");
-        inputPassword.setToolTipText("");
-        inputPassword.setBorder(null);
-        inputPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputPasswordActionPerformed(evt);
             }
         });
 
@@ -101,6 +94,28 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
+        BtnReturn.setBackground(new java.awt.Color(51, 153, 255));
+        BtnReturn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BtnReturn.setForeground(new java.awt.Color(255, 255, 255));
+        BtnReturn.setText("<");
+        BtnReturn.setBorder(null);
+        BtnReturn.setFocusable(false);
+        BtnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnReturnMouseClicked(evt);
+            }
+        });
+        BtnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnReturnActionPerformed(evt);
+            }
+        });
+
+        inputPassword.setBackground(new java.awt.Color(255, 255, 255));
+        inputPassword.setForeground(new java.awt.Color(51, 51, 51));
+        inputPassword.setText("jPasswordField1");
+        inputPassword.setBorder(null);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -116,16 +131,20 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(inputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))))
+                    .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(15, 15, 15)
+                .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel3)
@@ -137,13 +156,13 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -188,10 +207,6 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsernameActionPerformed
 
-    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPasswordActionPerformed
-
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -200,10 +215,10 @@ public class SignUp extends javax.swing.JFrame {
 
             //Obteneción de string de cada input
             String username = this.inputUsername.getText();
-            String password = this.inputPassword.getText();
+            char[] password = this.inputPassword.getPassword();
             //Se llama al método del servicio de usuario que se encarga de registrar 
             //El método retorna true o false, dependiendo si se creo o no el usuario
-            if(this.userService.create(new UserDTO(username, password))){
+            if(this.userService.create(new SignUpDTO(username, password))){
                  //Se notifica al usuario de un registro exitoso
             this.jOptionPane.showMessageDialog(
                     null,
@@ -226,14 +241,26 @@ public class SignUp extends javax.swing.JFrame {
     
 
     }//GEN-LAST:event_btnRegisterMouseClicked
+     //Se presiona el boton si se desea volver a la ventana anterior
+    private void BtnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReturnMouseClicked
+      //Se instancia la clase Login
+     SignIn login = new SignIn();
+     //Se oculta la ventana Principal que apunta a esta clase
+     this.setVisible(false);
+    }//GEN-LAST:event_BtnReturnMouseClicked
+
+    private void BtnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnReturnActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnReturn;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JTextField inputPassword;
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

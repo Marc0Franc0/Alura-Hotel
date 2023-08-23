@@ -17,7 +17,7 @@ public class User implements Serializable {
     private Long id;
     @Column(unique = true)
     private String username;
-    private String password;
+    private char[] password;
 
     public Long getId() {
         return id;
@@ -35,15 +35,15 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(char[] password) {
         this.password = password;
     }
 
-    public User(String username, String password) {
+    public User(String username, char[] password) {
         this.username = username;
         this.password = password;
     }
@@ -51,7 +51,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long id, String username, String password) {
+    public User(Long id, String username, char[] password) {
         this.id = id;
         this.username = username;
         this.password = password;
