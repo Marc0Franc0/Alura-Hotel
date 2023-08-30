@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import app.dto.ReserveDTO;
 
 public class ReserveRegister extends javax.swing.JFrame {
 
@@ -34,7 +35,7 @@ public class ReserveRegister extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMoney = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        paymentMethods = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -80,10 +81,10 @@ public class ReserveRegister extends javax.swing.JFrame {
         txtMoney.setBorder(null);
         txtMoney.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        paymentMethods.setBackground(new java.awt.Color(255, 255, 255));
+        paymentMethods.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        paymentMethods.setForeground(new java.awt.Color(51, 51, 51));
+        paymentMethods.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -183,7 +184,7 @@ public class ReserveRegister extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(paymentMethods, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtMoney)
                         .addComponent(jSeparator1)
                         .addComponent(jSeparator2)
@@ -224,7 +225,7 @@ public class ReserveRegister extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(paymentMethods, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -314,18 +315,31 @@ public class ReserveRegister extends javax.swing.JFrame {
         Date dateCheckOut = calendarCheckOut.getTime();
         //Verificación de entrada de datos
         boolean verify = this.reserveService.verifyData(dateCheckIn, dateCheckOut);
-     if(verify){
+
             //Llamado al método encargado de calcular el valor
-            Double reserveValue =
-                    this.reserveService.calculateValue(dateCheckIn, dateCheckOut);
+            Double value = calculateValue();
             //Se setea el valor en campo de texto
-            this.txtMoney.setText(String.valueOf(reserveValue).concat(" USD"));
-     }
+            this.txtMoney.setText(String.valueOf(value).concat(" USD"));
+     
 
     }//GEN-LAST:event_calculateValueMouseClicked
 
     private void BtnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnNextMouseClicked
-        // TODO add your handling code here:
+       //Obtención de datos seleccionados para la creacion de la reserva
+        Date entryDate = this.inputCheckIn.getDate();
+       Date departureDate = this.inputCheckOut.getDate();
+       Double value=calculateValue();
+       String paymentMethod = paymentMethods.getSelectedItem().toString();
+       //Llamado al método encargado de la manipulacion de los datos y asi crear la reserva
+       this.reserveService.create(
+                new ReserveDTO
+        (entryDate,departureDate,value,paymentMethod));
+       //Generacion de numero de reserva
+       Integer reservationNumber = (int)(Math. random()*10+1);
+       //Instancia de la clase de registro de un huesped
+       GuestRegistration guestRegistration= new GuestRegistration(reservationNumber);
+       //Ocultacion de la ventana actual
+       this.setVisible(false);
     }//GEN-LAST:event_BtnNextMouseClicked
 //Método para definir el modelo en el select de metodos de pago
 
@@ -333,17 +347,27 @@ public class ReserveRegister extends javax.swing.JFrame {
         String[] methods
                 = {"Tarjeta de crédito", "Tarjeta de débito", "Dinero en efectivo"};
         ComboBoxModel model = new DefaultComboBoxModel(methods);
-        this.jComboBox3.setModel(model);
+        this.paymentMethods.setModel(model);
     }
 
-
+  private Double calculateValue() {
+        Date entryDate = this.inputCheckIn.getDate();
+       Date departureDate = this.inputCheckOut.getDate();
+       Double reserveValue=0.0;
+       //Verificación de entrada de datos
+        boolean verify = this.reserveService.verifyData(entryDate, departureDate);
+        if(verify){  
+            reserveValue =
+                    this.reserveService
+                            .calculateValue(entryDate, departureDate);}
+        return reserveValue;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnNext;
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton calculateValue;
     private com.toedter.calendar.JDateChooser inputCheckIn;
     private com.toedter.calendar.JDateChooser inputCheckOut;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -356,6 +380,7 @@ public class ReserveRegister extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JComboBox<String> paymentMethods;
     private javax.swing.JTextField txtMoney;
     // End of variables declaration//GEN-END:variables
 }
