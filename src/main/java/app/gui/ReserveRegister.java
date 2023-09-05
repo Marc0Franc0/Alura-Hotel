@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import app.dto.ReserveDTO;
+import app.model.Reserve;
+import javax.swing.JOptionPane;
 
 public class ReserveRegister extends javax.swing.JFrame {
 
@@ -70,7 +72,7 @@ public class ReserveRegister extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(17, 140, 198));
         jLabel2.setText("SISTEMA DE RESERVAS");
 
         txtMoney.setEditable(false);
@@ -110,7 +112,7 @@ public class ReserveRegister extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(51, 153, 255));
 
-        calculateValue.setBackground(new java.awt.Color(51, 153, 255));
+        calculateValue.setBackground(new java.awt.Color(17, 140, 198));
         calculateValue.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         calculateValue.setForeground(new java.awt.Color(255, 255, 255));
         calculateValue.setText("Calcular valor");
@@ -156,7 +158,7 @@ public class ReserveRegister extends javax.swing.JFrame {
             }
         });
 
-        BtnNext.setBackground(new java.awt.Color(51, 153, 255));
+        BtnNext.setBackground(new java.awt.Color(17, 140, 198));
         BtnNext.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         BtnNext.setForeground(new java.awt.Color(255, 255, 255));
         BtnNext.setText("Siguiente");
@@ -313,9 +315,6 @@ public class ReserveRegister extends javax.swing.JFrame {
         Calendar calendarCheckOut = this.inputCheckOut.getCalendar();
         Date dateCheckIn = calendarCheckIn.getTime();
         Date dateCheckOut = calendarCheckOut.getTime();
-        //Verificación de entrada de datos
-        boolean verify = this.reserveService.verifyData(dateCheckIn, dateCheckOut);
-
             //Llamado al método encargado de calcular el valor
             Double value = calculateValue();
             //Se setea el valor en campo de texto
@@ -329,17 +328,29 @@ public class ReserveRegister extends javax.swing.JFrame {
         Date entryDate = this.inputCheckIn.getDate();
        Date departureDate = this.inputCheckOut.getDate();
        Double value=calculateValue();
-       String paymentMethod = paymentMethods.getSelectedItem().toString();
+       if(value!=0.0){
+           String paymentMethod = paymentMethods.getSelectedItem().toString();
        //Llamado al método encargado de la manipulacion de los datos y asi crear la reserva
-       this.reserveService.create(
+       Reserve reserveCreated= (Reserve) this.reserveService.create(
                 new ReserveDTO
         (entryDate,departureDate,value,paymentMethod));
        //Generacion de numero de reserva
-       Integer reservationNumber = (int)(Math. random()*10+1);
+       Integer reservationNumber = (int)(Math.random()*10+1)*10;
+       //Se le muestra al usuario el número de reserva
+      JOptionPane.showMessageDialog(
+                    null,
+                    "Número de reserva: "+reservationNumber,
+                    "Message",
+                    JOptionPane.INFORMATION_MESSAGE);
        //Instancia de la clase de registro de un huesped
-       GuestRegistration guestRegistration= new GuestRegistration(reservationNumber);
+       GuestRegistration guestRegistration=
+               new GuestRegistration(
+                       reservationNumber,
+                       reserveCreated.getId());
        //Ocultacion de la ventana actual
        this.setVisible(false);
+       }
+       
     }//GEN-LAST:event_BtnNextMouseClicked
 //Método para definir el modelo en el select de metodos de pago
 

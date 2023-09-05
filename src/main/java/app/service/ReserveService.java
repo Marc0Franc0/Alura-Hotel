@@ -10,21 +10,37 @@ import java.util.Date;
 public class ReserveService extends ReserveUtils implements CrudService{
  private ReserveJpaController reserveJpaController = new ReserveJpaController();
     @Override
-    public boolean create(Object object) {
-        boolean created  = false;
+    public Object create(Object object) {
+        Reserve reserveCreated  = null;
         try {
             ReserveDTO reserve = (ReserveDTO) object;
-         reserveJpaController
-                .create(new Reserve(
+            reserveCreated = new Reserve(
                         reserve.getEntryDate(), 
                         reserve.getDepartureDate(), 
                          Double.valueOf(reserve.getValue()), 
-                        reserve.getPaymentMethod()));
-         created = true;
+                        reserve.getPaymentMethod());
+         reserveJpaController
+                .create(reserveCreated);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return created;
+        return reserveCreated;
+    }
+
+    @Override
+    public Object get(Long id) {
+        return reserveJpaController.findReserve(id);
+    }
+
+    @Override
+    public Object update(Long id, Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

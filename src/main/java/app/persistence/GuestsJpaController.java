@@ -4,7 +4,7 @@
  */
 package app.persistence;
 
-import app.model.Guests;
+import app.model.Guest;
 import app.persistence.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -24,13 +25,16 @@ public class GuestsJpaController implements Serializable {
     public GuestsJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+     public GuestsJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("HotelPU");
+    }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public void create(Guests guests) {
+    public void create(Guest guests) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -44,7 +48,7 @@ public class GuestsJpaController implements Serializable {
         }
     }
 
-    public void edit(Guests guests) throws NonexistentEntityException, Exception {
+    public void edit(Guest guests) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -72,9 +76,9 @@ public class GuestsJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Guests guests;
+            Guest guests;
             try {
-                guests = em.getReference(Guests.class, id);
+                guests = em.getReference(Guest.class, id);
                 guests.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The guests with id " + id + " no longer exists.", enfe);
@@ -88,19 +92,19 @@ public class GuestsJpaController implements Serializable {
         }
     }
 
-    public List<Guests> findGuestsEntities() {
+    public List<Guest> findGuestsEntities() {
         return findGuestsEntities(true, -1, -1);
     }
 
-    public List<Guests> findGuestsEntities(int maxResults, int firstResult) {
+    public List<Guest> findGuestsEntities(int maxResults, int firstResult) {
         return findGuestsEntities(false, maxResults, firstResult);
     }
 
-    private List<Guests> findGuestsEntities(boolean all, int maxResults, int firstResult) {
+    private List<Guest> findGuestsEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Guests.class));
+            cq.select(cq.from(Guest.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -112,10 +116,10 @@ public class GuestsJpaController implements Serializable {
         }
     }
 
-    public Guests findGuests(Long id) {
+    public Guest findGuests(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Guests.class, id);
+            return em.find(Guest.class, id);
         } finally {
             em.close();
         }
@@ -125,7 +129,7 @@ public class GuestsJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Guests> rt = cq.from(Guests.class);
+            Root<Guest> rt = cq.from(Guest.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

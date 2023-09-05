@@ -46,7 +46,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(17, 140, 198));
         jLabel3.setText("CREAR NUEVA CUENTA");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -82,7 +82,7 @@ public class SignUp extends javax.swing.JFrame {
         inputPassword.setText("jPasswordField1");
         inputPassword.setBorder(null);
 
-        btnRegister.setBackground(new java.awt.Color(51, 153, 255));
+        btnRegister.setBackground(new java.awt.Color(17, 140, 198));
         btnRegister.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Registrarse");
@@ -93,7 +93,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        btnReturn.setBackground(new java.awt.Color(51, 153, 255));
+        btnReturn.setBackground(new java.awt.Color(17, 140, 198));
         btnReturn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btnReturn.setForeground(new java.awt.Color(255, 255, 255));
         btnReturn.setText("<");
@@ -201,7 +201,7 @@ public class SignUp extends javax.swing.JFrame {
         char[] password = this.inputPassword.getPassword();
         //Se llama al método del servicio de usuario que se encarga de registrar 
         //El método retorna true o false, dependiendo si se creo o no el usuario
-        if (this.userService.create(new SignUpDTO(username, password))) {
+        if (this.userService.create(new SignUpDTO(username, password))!=null) {
             //Se notifica al usuario de un registro exitoso
             this.jOptionPane.showMessageDialog(
                     null,

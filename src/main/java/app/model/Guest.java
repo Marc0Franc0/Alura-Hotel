@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Guests implements Serializable {
+public class Guest implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,7 +81,7 @@ public class Guests implements Serializable {
         this.reserve = reserve;
     }
 
-    public Guests(Long id, String firstName, String lastName, Date birthdate, String nacionalidad, String phoneNumber, Reserve reserve) {
+    public Guest(Long id, String firstName, String lastName, Date birthdate, String nacionalidad, String phoneNumber, Reserve reserve) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -90,8 +90,15 @@ public class Guests implements Serializable {
         this.phoneNumber = phoneNumber;
         this.reserve = reserve;
     }
-
-    public Guests() {
+  public Guest( String firstName, String lastName, Date birthdate, String nacionalidad, String phoneNumber, Reserve reserve) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.nacionalidad = nacionalidad;
+        this.phoneNumber = phoneNumber;
+        this.reserve = reserve;
+    }
+    public Guest() {
     }
 
 }

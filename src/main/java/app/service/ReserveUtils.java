@@ -43,8 +43,7 @@ public class ReserveUtils {
 
     private void showAlert(String alert) {
         JOptionPane.showMessageDialog(null,
-                alert
-                        .concat(alert).concat("."),
+                alert.concat("."),
                 "Message",
                 JOptionPane.WARNING_MESSAGE
         );

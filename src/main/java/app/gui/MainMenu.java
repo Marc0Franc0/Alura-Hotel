@@ -60,7 +60,7 @@ public class MainMenu extends javax.swing.JFrame{
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(51, 153, 255));
+        btnLogin.setForeground(new java.awt.Color(17, 140, 198));
         btnLogin.setText("LOGIN");
         btnLogin.setFocusable(false);
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {

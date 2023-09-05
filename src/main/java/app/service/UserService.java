@@ -8,21 +8,37 @@ public class UserService extends UserUtils implements CrudService{
   private UserJpaController userJpaController = new UserJpaController();
 
     @Override
-    public boolean create(Object object) {
-        boolean created = false;
+    public Object create(Object object) {
+        User userCreated = null;
         SignUpDTO userdto = (SignUpDTO) object;
         try{
-            userJpaController
-                    .create(new User(
+            userCreated =new User(
                             userdto.getUsername()
-                            , userdto.getPassword()));
-            created = true;
+                            , userdto.getPassword());
+            userJpaController
+                    .create(userCreated);
+           
         }catch(Exception e){
             System.out.println(   e.getMessage());
             e.printStackTrace();
         }
        // userJpaController.create(new User(0l,"admin", "admin"));
-       return created;
+       return userCreated;
+    }
+
+    @Override
+    public Object get(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object update(Long id, Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     

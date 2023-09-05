@@ -46,7 +46,7 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(17, 140, 198));
         jLabel3.setText("INICIAR SESIÓN");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -80,7 +80,7 @@ public class SignIn extends javax.swing.JFrame {
         inputPassword.setText("jPasswordField1");
         inputPassword.setBorder(null);
 
-        btnLogin.setBackground(new java.awt.Color(51, 153, 255));
+        btnLogin.setBackground(new java.awt.Color(17, 140, 198));
         btnLogin.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Entrar");
@@ -91,7 +91,7 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        btnRegister.setBackground(new java.awt.Color(51, 153, 255));
+        btnRegister.setBackground(new java.awt.Color(17, 140, 198));
         btnRegister.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Crear nueva cuenta");
