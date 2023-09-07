@@ -25,6 +25,21 @@ public class Guest implements Serializable {
     @ManyToOne
     Reserve reserve;
 
+     //Se utiliza para poder mapear la lista deproductosy asi mostrarlos en la tabla
+
+    public Object[] toArray() {
+
+        Object[] obj = new Object[7];
+
+        obj[0] = this.id;
+        obj[1] = this.firstName;
+        obj[2] = this.lastName;
+        obj[3] = this.birthdate;
+        obj[4]=this.nacionalidad;
+        obj[5]=this.phoneNumber;
+        obj[6]=this.reserve.getId();
+        return obj;
+    }
     public Long getId() {
         return id;
     }

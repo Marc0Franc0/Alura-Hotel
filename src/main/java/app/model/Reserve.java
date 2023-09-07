@@ -11,6 +11,7 @@ import lombok.ToString;
 @Entity
 @ToString
 public class Reserve implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,13 +27,26 @@ public class Reserve implements Serializable {
         this.value = value;
         this.paymentMethod = paymentMethod;
     }
-    
-      public Reserve(Date entryDate, Date departureDate, 
-              Double value, String paymentMethod) {
+
+    public Reserve(Date entryDate, Date departureDate,
+            Double value, String paymentMethod) {
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.value = value;
         this.paymentMethod = paymentMethod;
+    }
+    //Se utiliza para poder mapear la lista deproductosy asi mostrarlos en la tabla
+
+    public Object[] toArray() {
+
+        Object[] obj = new Object[5];
+
+        obj[0] = this.id;
+        obj[1] = this.entryDate;
+        obj[2] = this.departureDate;
+        obj[3] = this.value;
+        obj[4]=this.paymentMethod;
+        return obj;
     }
 
     public Reserve() {
@@ -78,7 +92,4 @@ public class Reserve implements Serializable {
         this.paymentMethod = paymentMethod;
     }
 
-
-   
-    
 }

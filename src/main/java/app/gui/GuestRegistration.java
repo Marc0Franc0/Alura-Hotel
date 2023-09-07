@@ -1,6 +1,6 @@
 package app.gui;
 
-import app.dto.GuestDTO;
+import app.dto.GuestCreateDTO;
 import app.service.GuestService;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -274,8 +274,7 @@ public class GuestRegistration extends javax.swing.JFrame {
             Date birthdate = this.inputBIrthdate.getDate();
             String nacionality = this.inputNationality.getText();
             String phoneNumber = this.inputPhoneNumber.getText();
-            this.guestService.create(
-                    new GuestDTO(
+            this.guestService.create(new GuestCreateDTO(
                             name,
                             lastName,
                             birthdate,

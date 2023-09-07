@@ -1,9 +1,11 @@
 package app.service;
 
 import app.dto.ReserveDTO;
+import app.dto.ReserveUpdateDTO;
 import app.model.Reserve;
 import app.persistence.ReserveJpaController;
-import java.util.Date;
+import app.persistence.exceptions.NonexistentEntityException;
+import java.util.List;
 
 //Clase utilizada para recibir los datos para transacciones de una entidad
 //Y luego realizar las mismas con la clase controller correspondiente
@@ -34,13 +36,38 @@ public class ReserveService extends ReserveUtils implements CrudService{
     }
 
     @Override
-    public Object update(Long id, Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Object update(Object object) {
+        ReserveUpdateDTO reserve = (ReserveUpdateDTO)object;
+        Reserve reserveUpdated = new Reserve(
+                reserve.getId(), 
+                reserve.getEntryDate(), 
+                reserve.getDepartureDate(), 
+                reserve.getValue(), 
+                reserve.getPaymentMethod());
+     try {
+         reserveJpaController.edit(reserveUpdated);
+     } catch (Exception ex) {
+         ex.printStackTrace();
+     }
+         return reserveUpdated;
     }
 
     @Override
-    public Object delete(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean delete(Long id) {
+        boolean rta= false;
+     try {
+         this.reserveJpaController.destroy(id);
+         rta = true;
+     } catch (NonexistentEntityException ex) {
+         ex.printStackTrace();
+     }
+     return rta;
+    }
+    
+    
+    @Override
+    public List<Reserve> getAll() {
+        return reserveJpaController.findReserveEntities();
     }
     
 }

@@ -122,6 +122,11 @@ public class UserMenu extends javax.swing.JFrame {
         BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchBtn.png"))); // NOI18N
         BtnSearch.setDefaultCapable(false);
         BtnSearch.setFocusable(false);
+        BtnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnSearchMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,6 +186,11 @@ public class UserMenu extends javax.swing.JFrame {
        ReserveRegister reserveRegister = new ReserveRegister();
        this.setVisible(false);
     }//GEN-LAST:event_BtnRegisterReserveMouseClicked
+
+    private void BtnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSearchMouseClicked
+        SearchSystem searchSystem = new SearchSystem();
+        this.setVisible(false);
+    }//GEN-LAST:event_BtnSearchMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
