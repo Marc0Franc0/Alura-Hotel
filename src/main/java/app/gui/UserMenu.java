@@ -1,6 +1,5 @@
 package app.gui;
 
-import java.awt.Component;
 import java.time.LocalDate;
 
 public class UserMenu extends javax.swing.JFrame {
@@ -39,7 +38,7 @@ public class UserMenu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/welcome-user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcome-user.png"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(118, 187, 223));
 
@@ -97,14 +96,14 @@ public class UserMenu extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-alura.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-alura.jpg"))); // NOI18N
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
         BtnRegisterReserve.setBackground(new java.awt.Color(12, 138, 199));
         BtnRegisterReserve.setForeground(new java.awt.Color(12, 138, 199));
-        BtnRegisterReserve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btn-registroReserva.png"))); // NOI18N
+        BtnRegisterReserve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn-registroReserva.png"))); // NOI18N
         BtnRegisterReserve.setFocusable(false);
         BtnRegisterReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +118,7 @@ public class UserMenu extends javax.swing.JFrame {
 
         BtnSearch.setBackground(new java.awt.Color(12, 138, 199));
         BtnSearch.setForeground(new java.awt.Color(12, 138, 199));
-        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchBtn.png"))); // NOI18N
+        BtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/searchBtn.png"))); // NOI18N
         BtnSearch.setDefaultCapable(false);
         BtnSearch.setFocusable(false);
         BtnSearch.addMouseListener(new java.awt.event.MouseAdapter() {

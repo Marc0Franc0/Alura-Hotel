@@ -56,7 +56,7 @@ public class ReserveRegister extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img-registroReservas.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/img-registroReservas.png"))); // NOI18N
 
         btnReturn.setBackground(new java.awt.Color(51, 153, 255));
         btnReturn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N

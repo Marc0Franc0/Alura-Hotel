@@ -56,7 +56,7 @@ public class SearchSystem extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoAluraMediano.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoAluraMediano.png"))); // NOI18N
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
